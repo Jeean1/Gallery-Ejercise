@@ -1,0 +1,193 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400;0,700;1,500&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Raleway", sans-serif;
+}
+
+.containerElement {
+  border: 1px solid black;
+  width: 40%;
+  height: 20rem;
+  cursor: pointer;
+  background-image: url("https://www2.sgc.gov.co/sgc/volcanes/VolcanNevadoHuila/PublishingImages/Paginas/generalidades/huila1.png");
+}
+
+.element {
+  margin: 60px;
+  width: 200px;
+  height: 200px;
+  background-color: tomato;
+  opacity: 0;
+
+  transition-duration: 300ms;
+  transition-property: background-color, transform, opacity;
+  transition-timing-function: ease-in;
+  /* border-radius: 40%; */
+
+  /* transition-duration: 0.1s; */
+  /* transform: translate(200px, 500px) ;  similar a position pero en animaciones*/
+  /* transform: scalex(2); es cómo el width pero en animaciones*/
+  /* transform-origin: left; Es desde dónde quieres qué empiece la animación*/
+  /* En un transform puede ir todos los elementos, translate, scale, skech */
+
+  /* 
+    rotate
+    0-360 deg
+    0-400 grad
+    0-6.28319 rad
+    0-1 turn
+  
+  */
+}
+
+/* .element:hover {
+  transform: rotate(90 deg);
+} */
+
+/* .element:hover { */
+/* transform: rotate(360deg); */
+/* transform: scale(2,3); */
+/* transform: translate(100%,100%) scale(1,3);
+  transform-origin: left top;
+  cursor: pointer;
+  background-color: antiquewhite; */
+/* } */
+
+.containerElement:hover .element {
+  transform: translate(100%, 100%) scale(1.3) rotate(80deg);
+  /* transform-origin: left top; */
+  cursor: pointer;
+  background-color: antiquewhite;
+  opacity: 1;
+}
+
+.gallery {
+  padding-top: 1rem;
+  padding-bottom: 3rem;
+
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 200px;
+  gap: 0.8em;
+
+  grid-template-areas:
+    "img1 img1 img2 img3"
+    "img1 img1 img4 img4"
+    "img5 img5 img6 img7"
+    "img5 img5 img8 img8";
+}
+
+.gallery_img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.gallery_picture_g1 {
+  grid-area: img1;
+}
+.gallery_picture_g2 {
+  grid-area: img2;
+}
+.gallery_picture_g3 {
+  grid-area: img3;
+}
+.gallery_picture_g4 {
+  grid-area: img4;
+}
+.gallery_picture_g5 {
+  grid-area: img5;
+}
+.gallery_picture_g6 {
+  grid-area: img6;
+}
+.gallery_picture_g7 {
+  grid-area: img7;
+}
+.gallery_picture_g8 {
+  grid-area: img8;
+}
+
+.title {
+  text-align: center;
+  font-size: 3rem;
+  padding: 0.8em 0 0.4em;
+}
+
+.gallery_picture {
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.gallery_picture::before {
+  content: "Holaaa mundo";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(165, 42, 42, 0.23);
+  transform: scale(0);
+  transition: 0.5s;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  /* text-align: center; */
+  /* opacity: 0; */
+
+  /* background-image: url('https://cdn-icons-png.flaticon.com/512/1484/1484966.png'); */
+}
+
+
+
+.gallery_picture:hover::before {
+  /* opacity: 1; */
+
+  transform: scale(1) rotate(1turn);
+}
+
+
+
+
+@media (max-width:768px) {
+
+  .title {
+    text-align: center;
+    font-size: 1.5rem;
+    padding: 1em 0 0.4em;
+  }
+
+  .gallery {
+    padding-top: 1rem;
+    padding-bottom: 3rem;
+  
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: 200px;
+    gap: 0.8em;
+  
+    grid-template-areas:
+      "img1 img1"
+      "img1 img1"
+      "img2 img3"
+      "img4 img4"
+      "img4 img4"
+      "img5 img5"
+      "img5 img5"
+      "img6 img7"
+      "img8 img8";
+  }
+  .gallery_picture::before{
+    font-size: 1rem;
+  }
+  
+}
